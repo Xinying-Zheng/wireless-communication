@@ -1,6 +1,6 @@
 clear
 clc
-% % Consider that an MS with a velocity v receives an unmodulated
+% Consider that an MS with a velocity v receives an unmodulated
 % carrier with a frequency carrier with a frequency fc The incidence angle theta(t) of the incoming 
 % wave c. The incidence angle theta(t) of the incoming wave is assumed to be uniformly distributed 
 % between –pi and pi. delta_f=0.01;
