@@ -1,0 +1,9 @@
+# How to understand Rayleigh fading channel？ 如何理解瑞利衰落信道？
+
+## 定义
+信号从发射端通过信道传输至接收端往往会发生“损耗”，不同特性的信道会发生不同类型的“损耗”。
+
+瑞利衰落信道假设通过该信道的信号振幅是随机的（统计模型），并且其包络服从瑞利分布（Rayleigh distribution）。
+
+并且区别于莱斯衰落信道（Rician fading channel），瑞利衰落信道假设接受端与发射端之间没有直射信号（Line of sight, LoS），而莱斯衰落信道有。
+
