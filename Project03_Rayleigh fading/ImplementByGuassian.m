@@ -1,7 +1,7 @@
 clear
 
-N=100000;
-n=0:300;
+N=100000;   % number of sampling
+n=0:300;   % t/T times
 fmT=0.01;
 [r1,Rx1,Rx1_t]=filtered_Gaussian(N,fmT);
 fmT=0.1;
@@ -9,6 +9,8 @@ fmT=0.1;
 fmT=0.5;
 [r3,Rx3,Rx3_t]=filtered_Gaussian(N,fmT);
 
+
+%-----------plot the figure-----------------%
 figure(1)
 plot(n,10*log10(abs(r1(n+1))))
 title('Envelope (fmT=0.01)')
@@ -23,8 +25,8 @@ figure(2)
 plot(m*fmT,Rx1);hold on;
 plot(m*fmT,Rx1_t,'--');
 title('Autocorrelation (fmT=0.01)')
-xlabel('Time Delay,fm£n')
-ylabel('Autocorrelation,£p(£n)');
+xlabel('Time Delay,fmÂ£n')
+ylabel('Autocorrelation,Â£p(Â£n)');
 legend('simulation','theory')
 grid on
 h=getframe(2);
@@ -45,8 +47,8 @@ figure(4)
 plot(m,Rx2(1:10/fmT+1));hold on;
 plot(m,Rx2_t(1:10/fmT+1),'--');
 title('Autocorrelation (fmT=0.1)')
-xlabel('Time Delay,fm£n')
-ylabel('Autocorrelation,£p(£n)');
+xlabel('Time Delay,fmÂ£n')
+ylabel('Autocorrelation,Â£p(Â£n)');
 legend('simulation','theory')
 grid on
 h=getframe(4);
@@ -67,8 +69,8 @@ figure(6)
 plot(m,Rx3(1:10/fmT+1));hold on;
 plot(m,Rx3_t(1:10/fmT+1),'--');
 title('Autocorrelation (fmT=0.5)')
-xlabel('Time Delay,fm£n')
-ylabel('Autocorrelation,£p(£n)');
+xlabel('Time Delay,fmÂ£n')
+ylabel('Autocorrelation,Â£p(Â£n)');
 legend('simulation','theory')
 grid on
 h=getframe(6);
