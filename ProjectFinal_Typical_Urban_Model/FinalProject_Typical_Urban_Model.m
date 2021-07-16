@@ -1,9 +1,9 @@
 % Implement the Reduced Typical Urban (TU) Model with modification 
 % (Doppler Spectrum: CLASS, GAUS1 and GAUS2; M = 16)
-%Input parameters:
-%¡Ö Doppler spectrum parameters: a1, v11, v21, a2, v12, v22
-%¡Ö MS velocity
-%¡Ö 6 taps power delay profiles, ¡Ë
+% Input parameters:
+% Doppler spectrum parameters: a1, v11, v21, a2, v12, v22
+% MS velocity
+% 6 taps power delay profiles, Â¡Ã‹
 
 clc
 clear all;
