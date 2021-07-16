@@ -21,10 +21,11 @@ Normal=zeros(1,6);
 Hadamard_Trans=hadamard(M);
 GAUS11=zeros(1,30000);
 GAUS21=zeros(2,30000);
+% in this project I used the 6 tap,the tap1, tap 2 and tap3 for CLASS, the tap4 for GAUS1 ,tap5 and tap6 for GAUS2 
 piont=sqrt([0.189 0.379 0.239 0.095 0.061 0.037]);
 
 %% run the CLASS model
-for Tap=1:3   %tap 1~3 is CLASS 
+for Tap=1:3   %tap 1~3 is CLASS
     for a=1:30000
         for M_num=1:M
             beta=pi*M_num/17+(2*pi*(Tap-1)*M_num/17);
