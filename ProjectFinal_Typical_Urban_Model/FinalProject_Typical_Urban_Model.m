@@ -8,8 +8,6 @@
 clc
 clear all;
 close all
-
-%% set parameters
 ClASS=zeros(3,30000);
 GAUS1=zeros(1,30000);
 GAUS2=zeros(2,30000);
@@ -45,19 +43,22 @@ figure;
 plot(Autoc_CLASS);         
 title('Autocorrelation-CLASS');
 
+% summation of different tap
 Gain_CLASS=log10(abs(ClASS(2,:)));
 figure;
 plot(Gain_CLASS);  
 title('Time-domain Fading Gain-CLASS');
 
-
+% transfer the time domain into frequency domain by fft and obtain the power spectral density 
 psd_CLASS=fft([Autoc_CLASS(1:3000),zeros(1,4999-3000)],4999);   
 figure;
 plot(linspace(-1,1,length(psd_CLASS)),abs(psd_CLASS));  
 title('Power Spectral Density-CLASS');
 
 %% run the GAUS1 modle
+% limit the frequency f/fm in -1~1 and split into 16 part
 Vx=linspace(-1,1,16);
+% generate a random number
 Vx(2:end-1) = Vx(2:end-1)+Vx(2:end-1).*unifrnd(-1,1,1,14)*1e-2;
 r1=6.649*exp(-0.5*(Vx+0.8).^2/(0.05^2));
 r2=0.6649*exp(-0.5*(Vx-0.4).^2/(0.1^2));
@@ -68,6 +69,7 @@ Tap=4; %tap4 is GAUS1
 for a=1:30000
     for M_num=1:16
         fc4=sqrt(B1(M_num))*exp(1i*(2*pi*120*Vx(M_num)*(t(a)+300)));
+	% summation of different a 
         GAUS1(1,a)=fc4+GAUS1(1,a);
     end
     gu=sqrt(mean(GAUS1(1,:).*conj(GAUS1(1,:))));
