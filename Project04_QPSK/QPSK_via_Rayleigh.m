@@ -5,7 +5,7 @@ Es=1;
 index=1;
 x_r=[1 1 -1 -1];
 x_i=[1 -1 1 -1];
-QPSK_c=sqrt(1/2)*(x_r+j*x_i);
+QPSK_c=sqrt(1/2)*(x_r+j*x_i); % combining the R and I to the same vector as x+jy and normalized
 N=10e2;
 
 for L=1:1:4
@@ -20,15 +20,15 @@ for L=1:1:4
             % generating random bits
             S=round(rand(1,2));
             % QPSK mapping
-            decimal=S(1)*2+S(2);
-            C=QPSK_c(decimal+1);
+            decimal=S(1)*2+S(2); % 00->0 01->1 10->2 11->3
+            C=QPSK_c(decimal+1); % find the complex value
             
             N0_fading=1;
             N0=N0_fading*Es/(10^((SNR+10*log10(2))/10));            
             for L2=1:1:L
                 % Rayleigh fading channel
                 G=sqrt(N0_fading/2)*(randn(1)+j*randn(1));
-                % AWGN channel        
+                % AWGN noise       
                 Z=sqrt(N0/2)*(randn(1)+j*randn(1));
                 R=G*C+Z;
                 if(abs(conj(G).*R)>=abs(R_diversity(1)))
