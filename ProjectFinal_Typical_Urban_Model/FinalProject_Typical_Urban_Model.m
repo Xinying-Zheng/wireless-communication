@@ -33,8 +33,8 @@ for Tap=1:3   %tap 1~3 is CLASS
             ClASS(Tap,a)=fc3+ClASS(Tap,a);
         end
     end
-    gu=sqrt(mean(ClASS(Tap,:).*conj(ClASS(Tap,:))));
-    CLASS1(Tap,:)=(ClASS(Tap,:)/gu)*piont(Tap);
+    gu=sqrt(mean(ClASS(Tap,:).*conj(ClASS(Tap,:)))); % norm,power
+    CLASS1(Tap,:)=(ClASS(Tap,:)/gu)*piont(Tap);  %normalized
     Normal(Tap)=mean(CLASS1(Tap,:).*conj(CLASS1(Tap,:)));
 end
 %plot the autocorrelation,time domain fading gain and power spectral density of CLASS modle
@@ -66,13 +66,13 @@ r2=0.6649*exp(-0.5*(Vx-0.4).^2/(0.1^2));
 B1=r1+r2;
 
 Tap=4; %tap4 is GAUS1
-for a=1:30000
+for a=1:30000 %TRY 30000 TIMES
     for M_num=1:16
         fc4=sqrt(B1(M_num))*exp(1i*(2*pi*120*Vx(M_num)*(t(a)+300)));
 	% summation of different a 
         GAUS1(1,a)=fc4+GAUS1(1,a);
     end
-    gu=sqrt(mean(GAUS1(1,:).*conj(GAUS1(1,:))));
+    gu=sqrt(mean(GAUS1(1,:).*conj(GAUS1(1,:)))); %caculate the average
     GAUS11(1,:)=(GAUS1(1,:)/gu)*piont(Tap);
     Normal(Tap)=mean(GAUS11(1,:).*conj(GAUS11(1,:)));
 end
