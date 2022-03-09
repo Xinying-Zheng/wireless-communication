@@ -12,7 +12,7 @@ clear
 % the number of available channels? Why?
 % It is possible, because the total offered traffic contain the blocking traffic, which not actually used.
 % (b) How to determine the traffic that has been served?
-% The served traffic equal to (1-blocking rate)* total_offered_traffic
+% The served traffic equal to ( 1-blocking rate )* total_offered_traffic
 
 br=[0.01 0.03 0.05 0.1];
 for i=1:4;
