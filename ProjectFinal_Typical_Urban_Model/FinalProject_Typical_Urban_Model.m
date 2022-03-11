@@ -28,6 +28,7 @@ for Tap=1:3   %tap 1~3 is CLASS
         for M_num=1:M
             beta=pi*M_num/17+(2*pi*(Tap-1)*M_num/17);
             gamma=2*pi*M_num/(2*(2*16+1));   
+	    % the generate of fc3 refer to the ppt of ch2, multple fade envelopes,the 2^(2/3) is 2 times squrt root of 2. and the beta is theta in ppt.
             fc3=2^(3/2)*Hadamard_Trans(Tap,M_num)*(cos(pi*M_num/17)+1i*sin(pi*M_num/17))*cos(2*pi*120*0.01*cos(gamma)*t(1,a)+beta);
 	    % summation over M
             ClASS(Tap,a)=fc3+ClASS(Tap,a);
